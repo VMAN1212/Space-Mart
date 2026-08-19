@@ -16,11 +16,6 @@ public float jumpHeight = 1.5f;
     public float lookSensitivity = 2f;
     public float verticalLookLimit = 90f;
 
-    [Header("Shooting")]
-    public GameObject bulletPrefab;
-    public Transform gunPoint;
-    public float bulletForce = 500f;
-
     [Header("Crouch Settings")]
     public float crouchHeight = 1f;
     public float standHeight = 2f;
@@ -102,36 +97,15 @@ private float verticalRotation = 0f;
         // Rotates the entire player GameObject left and right.
         transform.Rotate(Vector3.up * mouseX);
     }
+
     public void OnJump(InputAction.CallbackContext context)
     {
         if (context.performed && controller.isGrounded) // Check that the Jump action was successfully performed and that the player is currently standing on the ground.
-    {
-            velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity); //
-            //Calculates the upward speed needed for the player to reach the chosen jump
-            //height while accounting for gravity.
-    }
-    }
-    public void OnShoot(InputAction.CallbackContext context)
-    {
-        if (context.performed)
         {
-            Shoot();
+                velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity); //
+                //Calculates the upward speed needed for the player to reach the chosen jump
+                //height while accounting for gravity.
         }
     }
-    private void Shoot()
-    {
-        if (bulletPrefab != null && gunPoint != null)
-        {
-            GameObject bullet = Instantiate(
-            bulletPrefab,
-            gunPoint.position,
-            gunPoint.rotation
-            );
-            Rigidbody rb = bullet.GetComponent<Rigidbody>();
-            if (rb != null)
-            {
-                rb.AddForce(gunPoint.forward * bulletForce); // Adjust force value as needed
-            }
-        }
-    }
+   
 }
