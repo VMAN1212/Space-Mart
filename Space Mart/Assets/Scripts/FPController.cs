@@ -134,4 +134,19 @@ private float verticalRotation = 0f;
             }
         }
     }
+
+    public void Crouch(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            controller.height = crouchHeight;
+            moveSpeed = crouchSpeed;
+        }
+
+        else if (context.canceled)
+        {
+            controller.height = standHeight;
+            moveSpeed = originalMoveSpeed;
+        }
+    }
 }
