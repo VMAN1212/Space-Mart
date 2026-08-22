@@ -6,7 +6,8 @@ public class EquipScript : MonoBehaviour
     public Transform playerTransform;
     public GameObject item;
     public Camera mainCamera;
-    public float range = 2f;
+    public float range = 3f;
+    public float force = 3f;
 
     private bool isEquipped = false;
 
@@ -66,8 +67,11 @@ public class EquipScript : MonoBehaviour
         playerTransform.DetachChildren();
 
         Rigidbody rb = item.GetComponent<Rigidbody>();
-        if (rb != null) rb.isKinematic = false;
-
+        if (rb != null)
+        {
+            rb.isKinematic = false;
+            rb.AddForce(mainCamera.transform.forward * force, ForceMode.Impulse);
+        }
         item = null;
     }
 }
