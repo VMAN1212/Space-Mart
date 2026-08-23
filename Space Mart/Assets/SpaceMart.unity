@@ -3121,6 +3121,7 @@ GameObject:
   - component: {fileID: 405834062}
   - component: {fileID: 405834061}
   - component: {fileID: 405834065}
+  - component: {fileID: 405834066}
   m_Layer: 0
   m_Name: Plane
   m_TagString: Untagged
@@ -3254,6 +3255,19 @@ MonoBehaviour:
   m_MinRegionArea: 2
   m_NavMeshData: {fileID: 23800000, guid: 2a3124404dafbcf44959f776a3c77e08, type: 2}
   m_BuildHeightMesh: 0
+--- !u!114 &405834066
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 405834060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474f5556b31d72b4795471f988cb1548, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Target
+  drop: 2
 --- !u!43 &462364642
 Mesh:
   m_ObjectHideFlags: 0
@@ -5833,6 +5847,7 @@ GameObject:
   - component: {fileID: 1736744004}
   - component: {fileID: 1736744006}
   - component: {fileID: 1736744007}
+  - component: {fileID: 1736744008}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -6011,9 +6026,9 @@ MonoBehaviour:
     m_ActionName: 'Player/Jump[/Keyboard/space]'
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1736744006}
-        m_TargetAssemblyTypeName: FPController, Assembly-CSharp
-        m_MethodName: OnShoot
+      - m_Target: {fileID: 1736744008}
+        m_TargetAssemblyTypeName: Shooting, Assembly-CSharp
+        m_MethodName: onShoot
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6105,9 +6120,6 @@ MonoBehaviour:
   cameraTransform: {fileID: 352234049}
   lookSensitivity: 1
   verticalLookLimit: 90
-  bulletPrefab: {fileID: 1565723049441094178, guid: 3494f95187cbb6c489af0ca355e353c5, type: 3}
-  gunPoint: {fileID: 296489152}
-  bulletForce: 500
   crouchHeight: 1
   standHeight: 2
   crouchSpeed: 2.5
@@ -6128,6 +6140,20 @@ MonoBehaviour:
   mainCamera: {fileID: 352234048}
   range: 3
   force: 3
+--- !u!114 &1736744008
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1736743999}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a654153e84330494eaec3ed122af79e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Shooting
+  bulletSpawn: {fileID: 296489151}
+  bullet: {fileID: 1565723049441094178, guid: 3494f95187cbb6c489af0ca355e353c5, type: 3}
 --- !u!1 &1777539925
 GameObject:
   m_ObjectHideFlags: 0
@@ -6143,9 +6169,10 @@ GameObject:
   - component: {fileID: 1777539928}
   - component: {fileID: 1777539927}
   - component: {fileID: 1777539926}
+  - component: {fileID: 1777539933}
   m_Layer: 0
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6164,6 +6191,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyFollow
   enemy: {fileID: 1777539927}
   Player: {fileID: 1736744003}
+  range: 3
 --- !u!195 &1777539927
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -6259,7 +6287,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: a799b0773976d704b98dc388eac3c124, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -6300,12 +6328,25 @@ Transform:
   m_GameObject: {fileID: 1777539925}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.95711, y: 0.63, z: 0.87424}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -3.95711, y: 1.222, z: 0.87424}
+  m_LocalScale: {x: 1, y: 1.5893, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1777539933
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1777539925}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4e0db3c9dfbb7446a25daab7d365148, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyLogic
+  health: 5
 --- !u!1 &1851856573
 GameObject:
   m_ObjectHideFlags: 0
