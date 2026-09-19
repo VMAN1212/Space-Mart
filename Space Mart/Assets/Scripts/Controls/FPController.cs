@@ -6,10 +6,8 @@ public class FPController : MonoBehaviour
 {
     [Header("Movement Settings")]
     public float moveSpeed = 5f;
-    public float gravity = -9.81f; // Controls the downward force
-    //applied to the player.The value is negative because gravity pulls the
-    //player down.
-public float jumpHeight = 1.5f;
+    public float gravity = -9.81f;
+    public float jumpHeight = 1.5f;
 
     [Header("Look Settings")]
     public Transform cameraTransform;
@@ -24,10 +22,9 @@ public float jumpHeight = 1.5f;
     private CharacterController controller;
     private Vector2 moveInput;
     private Vector2 lookInput;
-    private Vector3 velocity; // Stores the player's current vertical
-    //movement, including gravity.
-private float verticalRotation = 0f;
-    // Awake runs once when the GameObject is first loaded.
+    private Vector3 velocity;
+    private float verticalRotation = 0f;
+
     private void Awake()
     {
         controller = GetComponent<CharacterController>();
@@ -42,15 +39,11 @@ private float verticalRotation = 0f;
     }
     public void OnMove(InputAction.CallbackContext context)
     {
-        // Reads the movement input as a Vector2.
-        // For example, WASD or the left analogue stick.
         moveInput = context.ReadValue<Vector2>();
     }
-    // This method is called by the Input System when look input changes.
     public void OnLook(InputAction.CallbackContext context)
     {
-        // Reads the look input as a Vector2.
-        // For example, mouse movement or the right analogue stick.
+
         lookInput = context.ReadValue<Vector2>();
     }
     // Handles the player's movement and gravity.
@@ -97,15 +90,14 @@ private float verticalRotation = 0f;
         // Rotates the entire player GameObject left and right.
         transform.Rotate(Vector3.up * mouseX);
     }
-
     public void OnJump(InputAction.CallbackContext context)
     {
         if (context.performed && controller.isGrounded) // Check that the Jump action was successfully performed and that the player is currently standing on the ground.
         {
-                velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity); //
-                //Calculates the upward speed needed for the player to reach the chosen jump
-                //height while accounting for gravity.
+            velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity); //
+                                                                 //Calculates the upward speed needed for the player to reach the chosen jump
+                                                                 //height while accounting for gravity.
         }
     }
-   
 }
+    

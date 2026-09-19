@@ -1,20 +1,31 @@
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    public float speed = 10f;
-    public float lifeTime = 2f; // Bullet will be destroyed after this time
+    public int speed = 1;
     private Rigidbody rb;
+    public EnemyLogic enemyL; 
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        rb.linearVelocity = -transform.right * speed;
-        Destroy(gameObject, lifeTime);
     }
 
-    private void OnCollisionEnter(Collision collision)
+    // Update is called once per frame
+    void Update()
     {
-        Destroy(gameObject);
+        rb.linearVelocity = transform.forward * speed;
+        Destroy(gameObject, 2f);
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Enemy")
+        {
+            enemyL = other.gameObject.GetComponent<EnemyLogic>();
+            enemyL.health -= 1;
+            Destroy(gameObject);
+        }
+    }
 }
