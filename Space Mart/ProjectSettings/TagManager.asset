@@ -6,6 +6,7 @@ TagManager:
   tags:
   - ObjectiveItem
   - Enemy
+  - AmmoRefill
   layers:
   - Default
   - TransparentFX

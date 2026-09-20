@@ -15,8 +15,8 @@ public class Shelf : MonoBehaviour
     {
         if (Occupied()) return;
 
-        Target target = other.GetComponent<Target>();
-        if (target == null) return;
+        EquipScript equipped = other.GetComponent<EquipScript>();
+        if (equipped == null) return;
 
         Snap(other.gameObject);
     }
