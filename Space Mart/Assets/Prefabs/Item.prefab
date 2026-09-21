@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 7949519269109802016}
   - component: {fileID: 7358617884747387638}
   - component: {fileID: 9149027482686985055}
+  - component: {fileID: -4612255033654686727}
   m_Layer: 0
   m_Name: Item
   m_TagString: ObjectiveItem
@@ -142,6 +143,20 @@ Rigidbody:
   m_Constraints: 0
   m_CollisionDetection: 0
 --- !u!114 &9149027482686985055
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1247323666335682682}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c281268e4924c0f4099cd16b6aa4c051, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EquipScript
+  playerTransform: {fileID: 0}
+  force: 3
+--- !u!114 &-4612255033654686727
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

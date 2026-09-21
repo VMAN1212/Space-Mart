@@ -106,11 +106,11 @@ public class Controller : MonoBehaviour
 
         if (motion.sqrMagnitude >= 0.01f)
         {
-            currentVelocity = Vector3.MoveTowards(currentVelocity, motion * moveSpeed, acceleration * Time.deltaTime);
+            currentVelocity = motion * moveSpeed;
         }
         else
         {
-            currentVelocity = Vector3.MoveTowards(currentVelocity, Vector3.zero, acceleration * Time.deltaTime);
+            currentVelocity = Vector3.zero;
         }
 
         if (isGrounded && verticalVelocity <= 0.01f)
