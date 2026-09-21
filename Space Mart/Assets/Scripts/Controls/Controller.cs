@@ -99,14 +99,12 @@ public class Controller : MonoBehaviour
     }
 
     void MoveUpdate()
-    { 
+    {
         Vector3 motion = transform.forward * moveInput.y + transform.right * moveInput.x;
         motion.y = 0f;
         motion.Normalize();
 
-        controller.Move(motion * moveSpeed * Time.deltaTime);
-
-        if(motion.sqrMagnitude >= 0.01f)
+        if (motion.sqrMagnitude >= 0.01f)
         {
             currentVelocity = Vector3.MoveTowards(currentVelocity, motion * moveSpeed, acceleration * Time.deltaTime);
         }
@@ -125,6 +123,8 @@ public class Controller : MonoBehaviour
         }
 
         Vector3 fullVelocity = new Vector3(currentVelocity.x, verticalVelocity, currentVelocity.z);
+
+        controller.Move(fullVelocity * Time.deltaTime);
     }
 
     void LookUpdate()
