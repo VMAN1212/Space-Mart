@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Green
+  m_Name: PlayerColour
   m_Shader: {fileID: -6465566751694194690, guid: 6ffa31a3453be9c498c5f5e1204e3ffd, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -123,13 +123,13 @@ Material:
     - _XRMotionVectorsPass: 1
     - _ZWrite: 1
     m_Colors:
-    - _BaseColor: {r: 0.27270424, g: 1, b: 0, a: 1}
-    - _Color: {r: 0.2727042, g: 1, b: 0, a: 1}
+    - _BaseColor: {r: 0.23890376, g: 1, b: 0, a: 1}
+    - _Color: {r: 0.23890373, g: 1, b: 0, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
---- !u!114 &148303553666895005
+--- !u!114 &4266670205336253243
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}

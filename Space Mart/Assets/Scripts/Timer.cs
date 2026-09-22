@@ -1,5 +1,6 @@
 using UnityEngine;
 using TMPro; // Required for TextMeshPro UI elements
+using UnityEngine.SceneManagement; // Required for scene management
 
 public class Timer : MonoBehaviour
 {
@@ -49,5 +50,6 @@ public class Timer : MonoBehaviour
     void OnTimerEnd()
     {
         Debug.Log("Timer has ended. Implement your end-of-timer logic here.");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
