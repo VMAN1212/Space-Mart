@@ -492,6 +492,7 @@ GameObject:
   - component: {fileID: 34416269}
   - component: {fileID: 34416268}
   - component: {fileID: 34416275}
+  - component: {fileID: 34416278}
   m_Layer: 7
   m_Name: Enemy (2)
   m_TagString: Enemy
@@ -687,6 +688,26 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   walkRange: 50
+  sightRange: 15
+--- !u!114 &34416278
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 34416267}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 987d382460ae8bd48ba9e7193de925f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyAiPatrol
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 128
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 256
+  walkRange: 70
   sightRange: 15
 --- !u!43 &86667619
 Mesh:
@@ -13163,7 +13184,7 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 256
-  walkRange: 50
+  walkRange: 70
   sightRange: 15
 --- !u!43 &729749422
 Mesh:
@@ -19576,11 +19597,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyAiPatrol
   groundLayer:
     serializedVersion: 2
-    m_Bits: 384
+    m_Bits: 128
   playerLayer:
     serializedVersion: 2
     m_Bits: 256
-  walkRange: 50
+  walkRange: 70
   sightRange: 15
 --- !u!43 &1141070048
 Mesh:
