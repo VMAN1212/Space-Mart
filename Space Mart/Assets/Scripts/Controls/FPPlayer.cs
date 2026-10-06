@@ -11,6 +11,7 @@ public class FPPlayer : MonoBehaviour
 
     public void OnMove(InputAction.CallbackContext context)
     {
+        SoundManager.Instance.PlaySound3D("Walk", transform.position);
         controller.moveInput = context.ReadValue<Vector2>();
     }
 
@@ -27,6 +28,7 @@ public class FPPlayer : MonoBehaviour
 
     public void OnJump(InputAction.CallbackContext context)
     {
+        SoundManager.Instance.PlaySound3D("Jump", transform.position);
         if (context.performed && controller.isGrounded) 
         {
             controller.TryJump();           
