@@ -3,8 +3,7 @@ using UnityEngine.InputSystem;
 
 public class Shooting : MonoBehaviour
 {
-    public GameObject bulletSpawn;
-    public GameObject bullet;
+    public Transform bulletSpawn;
     public Ammo ammo;
 
     private void Awake()
@@ -24,7 +23,7 @@ public class Shooting : MonoBehaviour
                 return;
             }
 
-            Instantiate(bullet, bulletSpawn.transform.position, bulletSpawn.transform.rotation);
+            BulletPool.Instance.GetBullet(bulletSpawn.position, bulletSpawn.rotation);
         }
     }
 }
