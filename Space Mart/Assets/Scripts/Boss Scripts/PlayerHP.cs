@@ -88,6 +88,6 @@ public class PlayerHP : MonoBehaviour
     {
         Debug.Log("Player has died!");
         // Add your game over / reload scene logic here
-        SceneManager.LoadScene("Supermarket");
+        SceneManager.LoadScene("GameOverScene");
     }
 }

@@ -50,6 +50,6 @@ public class Timer : MonoBehaviour
     void OnTimerEnd()
     {
         Debug.Log("Timer has ended. Implement your end-of-timer logic here.");
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        SceneManager.LoadScene("Boss Scene");
     }
 }
