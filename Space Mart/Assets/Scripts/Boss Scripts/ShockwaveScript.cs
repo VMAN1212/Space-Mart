@@ -5,7 +5,7 @@ public class FirstPersonShockwave : MonoBehaviour
     [Header("Scaling Settings")]
     public float maxScale = 60f;
     public float expandSpeed = 20f;
-
+    
     private float currentScale;
 
     void Start()
@@ -37,7 +37,7 @@ public class FirstPersonShockwave : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             Debug.Log("Player hit by shockwave!");
-            // other.GetComponent<PlayerHealth>()?.TakeDamage(1);
+            other.GetComponent<PlayerHP>()?.TakeDamage(20); // Pass how much damage it deals
         }
     }
 }
