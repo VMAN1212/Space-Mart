@@ -1,8 +1,11 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class EquipScript : MonoBehaviour, IInteractable 
+public class EquipScript : MonoBehaviour, IInteractable
 {
+    [Header("Item Settings")]
+    public string itemType = "Apple"; 
+
     public Transform playerTransform;
     public float force = 3f;
     private bool isEquipped = false;

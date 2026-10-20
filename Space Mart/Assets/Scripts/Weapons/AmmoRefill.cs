@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class AmmoRefill : MonoBehaviour, IInteractable
 {
@@ -17,9 +16,9 @@ public class AmmoRefill : MonoBehaviour, IInteractable
     {
         if (ammo == null) return;
         if (Time.time - lastPickup < cooldown) return;
-        if (ammo.isFull()) return;
+        if (ammo.isReserveFull()) return;
 
-        ammo.addAmmo(ammoAmount);
+        ammo.addReserveAmmo(ammoAmount);
         lastPickup = Time.time;
     }
 }
