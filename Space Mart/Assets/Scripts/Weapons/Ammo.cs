@@ -1,17 +1,16 @@
 using UnityEngine;
 using System;
-using JetBrains.Annotations;
 
 public class Ammo : MonoBehaviour
 {
-    public int maxAmmo = 24;
+    public int magazineSize = 12;
     public int currentAmmo;
+    public int reserveAmmo = 36;
+    public int maxReserveAmmo = 120;
+
     public event Action<int, int> onAmmoChange;
 
-    private void Awake()
-    {
-        currentAmmo = maxAmmo;
-    }
+   
 
     public bool hasAmmo()
     {
@@ -22,19 +21,33 @@ public class Ammo : MonoBehaviour
     {
         if (currentAmmo < amount) return false;
         currentAmmo -= amount;
-        onAmmoChange?.Invoke(currentAmmo, maxAmmo);
+        onAmmoChange?.Invoke(currentAmmo, reserveAmmo);
         return true;
     }
 
-    public void addAmmo(int amount)
+    public bool reload()
     {
-        currentAmmo += amount;
-        if (currentAmmo > maxAmmo) currentAmmo = maxAmmo;
-        onAmmoChange?.Invoke(currentAmmo, maxAmmo);
+        if (currentAmmo >= magazineSize) return false;
+
+        int neededAmmo = magazineSize - currentAmmo;
+        int ammoToReload = Mathf.Min(neededAmmo, reserveAmmo);
+
+        currentAmmo += ammoToReload;
+        reserveAmmo -= ammoToReload;
+
+        onAmmoChange?.Invoke(currentAmmo, reserveAmmo);
+        return true;
     }
 
-    public bool isFull()
+    public void addReserveAmmo(int amount)
     {
-        return currentAmmo >= maxAmmo;
+        reserveAmmo += amount;
+        if (reserveAmmo > maxReserveAmmo) reserveAmmo = maxReserveAmmo;
+        onAmmoChange?.Invoke(currentAmmo, reserveAmmo);
+    }
+
+    public bool isReserveFull()
+    {
+        return reserveAmmo >= maxReserveAmmo;
     }
 }

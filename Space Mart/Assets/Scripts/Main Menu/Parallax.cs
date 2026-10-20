@@ -1,11 +1,11 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Parallax : MonoBehaviour
 {
     [Header("Parallax Settings")]
-    [SerializeField] private float parallaxAmount = 25f; // Max pixel offset
-    [SerializeField] private float smoothSpeed = 8f;     // Lerp smoothing speed
-
+    [SerializeField] private float parallaxAmount = 25f; 
+    [SerializeField] private float smoothSpeed = 8f;     
     private RectTransform rectTransform;
     private Vector2 initialPosition;
 
@@ -17,14 +17,30 @@ public class Parallax : MonoBehaviour
 
     private void Update()
     {
-        Vector2 mousePos = Input.mousePosition;
-        Vector2 normalizedMouse = new Vector2(
-            (mousePos.x / Screen.width) - 0.5f,
-            (mousePos.y / Screen.height) - 0.5f
-        );
+        Vector2 inputVector = Vector2.zero;
 
-        Vector2 targetPosition = initialPosition + (normalizedMouse * parallaxAmount);
+       
+        if (Gamepad.current != null)
+        {
+            inputVector = Gamepad.current.rightStick.ReadValue();
+        }
 
+      
+        if (inputVector == Vector2.zero && Mouse.current != null)
+        {
+            Vector2 mousePos = Mouse.current.position.ReadValue();
+
+      
+            inputVector = new Vector2(
+                ((mousePos.x / Screen.width) - 0.5f) * 2f,
+                ((mousePos.y / Screen.height) - 0.5f) * 2f
+            );
+        }
+
+       
+        Vector2 targetPosition = initialPosition + (inputVector * parallaxAmount);
+
+        
         rectTransform.anchoredPosition = Vector2.Lerp(
             rectTransform.anchoredPosition,
             targetPosition,

@@ -10,6 +10,6 @@ public class AmmoUI : MonoBehaviour
     {
         if (ammo == null || ammoCount == null) return;
 
-        ammoCount.text = ammo.currentAmmo + " / " + ammo.maxAmmo;
+        ammoCount.text = ammo.currentAmmo + " / " + ammo.reserveAmmo;
     }
 }

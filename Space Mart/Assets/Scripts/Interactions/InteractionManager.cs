@@ -10,6 +10,11 @@ public class InteractionManager : MonoBehaviour
     public TextMeshProUGUI actionText;
     public PlayerInput playerInput;
     public InputActionReference action;
+
+    [Header("Reload Prompt Integration")]
+    public Ammo playerAmmo;
+    public InputActionReference reloadAction;
+
     private IInteractable interactable;
     private EquipScript equipped;
 
@@ -31,6 +36,13 @@ public class InteractionManager : MonoBehaviour
 
     private void Update()
     {
+        if (DialogueManager.Instance != null && DialogueManager.Instance.IsDialogueOpen())
+        {
+            if (actionUI != null) actionUI.SetActive(false);
+            interactable = null;
+            return;
+        }
+
         RaycastHit hit;
         bool didHit = Physics.Raycast(mainCam.transform.position, mainCam.transform.forward, out hit, range);
 
@@ -46,7 +58,12 @@ public class InteractionManager : MonoBehaviour
         if (interactable != null)
         {
             actionUI.SetActive(true);
-            actionText.text = "Press " + GetCurrentBinding() + " to " + interactable.getPrompt();
+            actionText.text = "Press " + GetCurrentBinding(action) + " to " + interactable.getPrompt();
+        }
+        else if (playerAmmo != null && playerAmmo.currentAmmo == 0 && playerAmmo.reserveAmmo > 0)
+        {
+            actionUI.SetActive(true);
+            actionText.text = "Press " + GetCurrentBinding(reloadAction) + " to reload.";
         }
         else
         {
@@ -58,15 +75,14 @@ public class InteractionManager : MonoBehaviour
     {
         if (!context.performed) return;
 
-        if (equipped != null)
-        {
-            equipped.Drop();
-            equipped = null;
-            return;
-        }
-
         if (interactable != null)
         {
+            if (interactable is EquipScript && equipped != null)
+            {
+                equipped.Drop();
+                equipped = null;
+            }
+
             interactable.Interact();
 
             if (interactable is EquipScript equipable)
@@ -75,21 +91,34 @@ public class InteractionManager : MonoBehaviour
             }
 
             interactable = null;
+            return;
+        }
+
+        if (equipped != null)
+        {
+            equipped.Drop();
+            equipped = null;
         }
     }
 
-    private string GetCurrentBinding()
+    private string GetCurrentBinding(InputActionReference actionRef)
     {
-        string scheme = playerInput.currentControlScheme;
-        return action.action.GetBindingDisplayString(InputBinding.MaskByGroup(scheme));
+        if (actionRef == null) return "R";
+
+        if (playerInput != null)
+        {
+            string scheme = playerInput.currentControlScheme;
+            return actionRef.action.GetBindingDisplayString(InputBinding.MaskByGroup(scheme));
+        }
+
+        return actionRef.action.GetBindingDisplayString();
     }
 
     private void HandleControlsChanged(PlayerInput input)
     {
         if (interactable != null)
         {
-            actionText.text = "Press " + GetCurrentBinding() + " to " + interactable.getPrompt();
+            actionText.text = "Press " + GetCurrentBinding(action) + " to " + interactable.getPrompt();
         }
     }
-
 }
