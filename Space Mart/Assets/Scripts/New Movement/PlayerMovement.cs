@@ -23,6 +23,7 @@ public class PlayerMovement : MonoBehaviour
     public float airMultiplier = 0.4f;
     public float gravityMultiplier = 2.5f;
     private bool readyToJump = true;
+    public bool canJump = true;
 
     [Header("Crouching")]
     private bool isCrouching;
@@ -125,7 +126,7 @@ public class PlayerMovement : MonoBehaviour
         verticalInput = moveValue.y;
 
         // Continuous jumping check
-        if (jumpInput.action.IsPressed() && readyToJump && grounded)
+        if (jumpInput.action.IsPressed() && readyToJump && grounded && canJump)
         {
             readyToJump = false;
             exitingSlope = true;

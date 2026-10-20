@@ -24,8 +24,7 @@ public class DialogueManager : MonoBehaviour
     public PlayerInput playerInput;
     public InputActionReference continueAction;
 
-    [Header("Input Control")]
-    public PlayerInput jumpInput;
+    [SerializeField] private PlayerMovement playerMovement;
 
     private Queue<DialogueLine> dialogueLinesQueue;
     private bool isDialogueOpen = false;
@@ -96,9 +95,9 @@ public class DialogueManager : MonoBehaviour
 
         DisplayNextSentence();
 
-        if (jumpInput != null)
+        if (playerMovement != null)
         {
-            jumpInput.actions["Jump"].Disable();
+            playerMovement.canJump = false; 
         }
     }
 
@@ -143,9 +142,9 @@ public class DialogueManager : MonoBehaviour
 
         SetOtherUIActive(true);
 
-        if (jumpInput != null)
+        if (playerMovement != null)
         {
-            jumpInput.actions["Jump"].Disable();
+            playerMovement.canJump = true; 
         }
     }
 

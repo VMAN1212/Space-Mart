@@ -5,9 +5,9 @@ using UnityEngine.EventSystems;
 public class PictureChange : MonoBehaviour, IPointerEnterHandler, ISelectHandler, IPointerExitHandler, IDeselectHandler
 {
     [Header("Portraits")]
-    [SerializeField] private Image workerPortraitImage;     
-    [SerializeField] private Sprite defaultPortrait;        
-    [SerializeField] private Sprite hoverOrSelectedPortrait;
+    [SerializeField] private Image workerPortraitImage;     //Blank Image on canvas
+    [SerializeField] private Sprite defaultPortrait;        //Default Image
+    [SerializeField] private Sprite hoverOrSelectedPortrait; //Image to change to
 
 
     public void Awake()
