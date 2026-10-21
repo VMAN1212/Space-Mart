@@ -20,7 +20,7 @@ public class FirstPersonShockwave : MonoBehaviour
         currentScale += expandSpeed * Time.deltaTime;
 
         // Apply scale (keeping Y thin so it's a flat ground wave)
-        transform.localScale = new Vector3(currentScale, 0.1f, currentScale);
+        transform.localScale = new Vector3(currentScale, 0.01f, currentScale);
 
         // Debug check (remove later if your console gets cluttered)
         // Debug.Log("Shockwave Scale: " + currentScale);
