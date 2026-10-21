@@ -50,6 +50,10 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 moveDirection;
     private Rigidbody rb;
 
+    [Header("Audio")]
+    public AudioSource audioSource;
+    public AudioClip jumpSound;
+
     [HideInInspector] public bool dashigkeit; // or `dashing` bool
     [HideInInspector] public float maxYSpeed;
 
@@ -280,6 +284,11 @@ public class PlayerMovement : MonoBehaviour
         exitingSlope = true;
         rb.linearVelocity = new Vector3(rb.linearVelocity.x, 0f, rb.linearVelocity.z);
         rb.AddForce(transform.up * jumpForce, ForceMode.Impulse);
+
+        if (audioSource != null && jumpSound != null)
+        {
+            audioSource.PlayOneShot(jumpSound);
+        }
     }
 
     private void ResetJump()
