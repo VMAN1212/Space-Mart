@@ -168,11 +168,11 @@ public class PlayerMovement : MonoBehaviour
             moveSpeed = crouchSpeed;
         }
         // Mode - Sprinting (checking if sprint key is held AND moving forward)
-       else if (grounded && isSprinting && verticalInput > 0f)
-{
-    state = MovementState.sprinting;
-    moveSpeed = sprintSpeed;
-}
+        else if (grounded && isSprinting && verticalInput > 0f)
+        {
+            state = MovementState.sprinting;
+            moveSpeed = sprintSpeed;
+        }
         // Mode - Walking
         else if (grounded)
         {

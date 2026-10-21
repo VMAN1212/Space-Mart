@@ -24,8 +24,8 @@ public class WallRunning : MonoBehaviour
     private float exitWallTimer;
 
     [Header("Detection")]
-    public float wallCheckDistance = 1.2f;
-    public float minJumpHeight = 2.25f;
+    public float wallCheckDistance = 0.7f;
+    public float minJumpHeight = 1.5f;
     private RaycastHit leftWallHit;
     private RaycastHit rightWallHit;
     private bool wallLeft;
