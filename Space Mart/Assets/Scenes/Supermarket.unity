@@ -1202,6 +1202,17 @@ Mesh:
       - serializedVersion: 1
         m_IndexStart: 0
         m_IndexCount: 0
+--- !u!114 &112442596 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6952995250913144763, guid: 4338de6cb311a22488440794dd8affde, type: 3}
+  m_PrefabInstance: {fileID: 612108664}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
 --- !u!1 &116271810
 GameObject:
   m_ObjectHideFlags: 0
@@ -10168,6 +10179,11 @@ MonoBehaviour:
   m_SelectedFaces: 
   m_SelectedEdges: []
   m_SelectedVertices: 
+--- !u!1 &422578061 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6041547206327914031, guid: 4338de6cb311a22488440794dd8affde, type: 3}
+  m_PrefabInstance: {fileID: 612108664}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &433240011
 GameObject:
   m_ObjectHideFlags: 0
@@ -18007,6 +18023,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77ed1443191bdf843845bf39cabdad33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyAI
+  player: {fileID: 0}
+  patrolPoints: []
+  patrolSpeed: 3.5
+  chaseRange: 8
+  chaseSpeed: 5.5
 --- !u!114 &728967837
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30667,6 +30688,17 @@ MonoBehaviour:
   itemType: Red
   playerTransform: {fileID: 356421534}
   force: 3
+--- !u!114 &1332632750 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1224721927612409297, guid: 4338de6cb311a22488440794dd8affde, type: 3}
+  m_PrefabInstance: {fileID: 612108664}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
 --- !u!1 &1333907051
 GameObject:
   m_ObjectHideFlags: 0
@@ -34089,6 +34121,59 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 143652045}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1504999159
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1504999161}
+  - component: {fileID: 1504999160}
+  m_Layer: 0
+  m_Name: DialogueManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1504999160
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1504999159}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 602168b45ec3fc74a8cbe5faa5ab715c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueManager
+  dialogueBoxUI: {fileID: 422578061}
+  nameText: {fileID: 1711617127}
+  dialogueText: {fileID: 1332632750}
+  continuePromptText: {fileID: 112442596}
+  uiToHide: []
+  animator: {fileID: 0}
+  playerInput: {fileID: 2124941775}
+  continueAction: {fileID: 4299435376120871425, guid: ec4dae7be2b758d43b427739230d6aaa, type: 3}
+  playerMovement: {fileID: 2124941769}
+--- !u!4 &1504999161
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1504999159}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 34.27, y: 9.91686, z: 0.31194}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!43 &1506689964
 Mesh:
@@ -39811,6 +39896,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1386892288}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1711617127 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3542997941285592131, guid: 4338de6cb311a22488440794dd8affde, type: 3}
+  m_PrefabInstance: {fileID: 612108664}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
 --- !u!1 &1743647309
 GameObject:
   m_ObjectHideFlags: 0
@@ -42320,6 +42416,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77ed1443191bdf843845bf39cabdad33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyAI
+  player: {fileID: 0}
+  patrolPoints: []
+  patrolSpeed: 3.5
+  chaseRange: 8
+  chaseSpeed: 5.5
 --- !u!195 &1854934807
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -48107,6 +48208,18 @@ PrefabInstance:
       propertyPath: whatIsGround.m_Bits
       value: 64
       objectReference: {fileID: 0}
+    - target: {fileID: 1371465726548761334, guid: 47b2fa646a782f44599bc7d1ac7440a0, type: 3}
+      propertyPath: playerRb
+      value: 
+      objectReference: {fileID: 2124941755}
+    - target: {fileID: 1371465726548761334, guid: 47b2fa646a782f44599bc7d1ac7440a0, type: 3}
+      propertyPath: deathMessage
+      value: 'help me '
+      objectReference: {fileID: 0}
+    - target: {fileID: 1371465726548761334, guid: 47b2fa646a782f44599bc7d1ac7440a0, type: 3}
+      propertyPath: playerMovement
+      value: 
+      objectReference: {fileID: 2124941769}
     - target: {fileID: 1449671880916265423, guid: 47b2fa646a782f44599bc7d1ac7440a0, type: 3}
       propertyPath: ammo
       value: 
@@ -48478,6 +48591,28 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2124941753}
   m_Enabled: 1
+--- !u!114 &2124941769 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1066434263549406781, guid: 47b2fa646a782f44599bc7d1ac7440a0, type: 3}
+  m_PrefabInstance: {fileID: 2124941752}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2124941753}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a5cdbb3828161d47bdb244dbc600233, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
+--- !u!114 &2124941775 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7835883592263911693, guid: 47b2fa646a782f44599bc7d1ac7440a0, type: 3}
+  m_PrefabInstance: {fileID: 2124941752}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2124941753}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.InputSystem::UnityEngine.InputSystem.PlayerInput
 --- !u!1 &2146764725
 GameObject:
   m_ObjectHideFlags: 0
@@ -48979,3 +49114,4 @@ SceneRoots:
   - {fileID: 4624505818290104800}
   - {fileID: 743460077}
   - {fileID: 573907872}
+  - {fileID: 1504999161}
