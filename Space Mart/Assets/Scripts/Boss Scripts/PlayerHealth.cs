@@ -73,6 +73,7 @@ public class PlayerHealth : MonoBehaviour
     {
         Debug.Log("Player has died!");
         // Add your respawn or game over logic here
-        SceneManager.LoadScene("Supermarket");
+        SceneManager.LoadScene("GameOverScene");
+        MusicManager.Instance.PlayMusic("BadEnd"); // Play the game over music when transitioning to the Game Over scene
     }
 }

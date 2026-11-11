@@ -48,5 +48,6 @@ public class VideoCutsceneController : MonoBehaviour
 
         // Load your first gameplay scene
         SceneManager.LoadScene(nextSceneName);
+        MusicManager.Instance.PlayMusic("Tutorial"); // Play the intro music when transitioning to the next scene
     }
 }

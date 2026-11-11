@@ -11,6 +11,8 @@ public class MainMenuManager : MonoBehaviour
 
     private void Start()
     {
+        MusicManager.Instance.PlayMusic("MainMenu");
+
         Time.timeScale = 1f;
 
         Cursor.lockState = CursorLockMode.None;
@@ -26,6 +28,7 @@ public class MainMenuManager : MonoBehaviour
     public void PlayGame()
     {
         SceneManager.LoadScene(gameSceneIndex);
+        MusicManager.Instance.PlayMusic("Intro");
     }
 
     public void ExitGame()

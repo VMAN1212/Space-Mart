@@ -14,14 +14,26 @@ public class MusicManager : MonoBehaviour
 
     private void Awake()
     {
-        if (Instance != null)
-        {
-            Destroy(gameObject);
-        }
-        else
+        if (Instance == null)
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+            return;
+        }
+    }
+
+    private void Start()
+    {
+        // If no music is currently playing (e.g., you hit play directly in a gameplay scene), 
+        // automatically kick off a default track so it's never silent.
+        if (musicSource != null && !musicSource.isPlaying)
+        {
+            // Replace "Level1" with the exact track name from your Music Library
+            PlayMusic("Supermarket", 0.5f);
         }
     }
 

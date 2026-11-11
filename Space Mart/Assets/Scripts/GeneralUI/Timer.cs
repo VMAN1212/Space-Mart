@@ -51,5 +51,6 @@ public class Timer : MonoBehaviour
     {
         Debug.Log("Timer has ended. Implement your end-of-timer logic here.");
         SceneManager.LoadScene("Boss Scene");
+        MusicManager.Instance.PlayMusic("Boss");
     }
 }
