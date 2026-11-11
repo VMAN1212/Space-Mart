@@ -24,7 +24,7 @@ public class Door : MonoBehaviour, IInteractable
         if (nextSceneIndex < SceneManager.sceneCountInBuildSettings)
         {
             SceneManager.LoadScene(nextSceneIndex);
-            MusicManager.Instance.PlayMusic("Supermarket"); // Play the intro music when transitioning to the next scene
+            MusicManager.Instance.PlayMusic("Supermarket"); // Play the supermarket music when transitioning to the next scene
         }
 
     }

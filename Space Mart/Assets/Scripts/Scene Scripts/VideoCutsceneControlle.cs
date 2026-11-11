@@ -20,6 +20,7 @@ public class VideoCutsceneController : MonoBehaviour
 
         // Play the video
         videoPlayer.Play();
+        MusicManager.Instance.PlayMusic("Intro"); // Play the intro music when the cutscene starts
     }
 
     void Update()
@@ -48,6 +49,6 @@ public class VideoCutsceneController : MonoBehaviour
 
         // Load your first gameplay scene
         SceneManager.LoadScene(nextSceneName);
-        MusicManager.Instance.PlayMusic("Tutorial"); // Play the intro music when transitioning to the next scene
+        MusicManager.Instance.PlayMusic("Tutorial"); // Play the tutorial music when transitioning to the next scene
     }
 }
