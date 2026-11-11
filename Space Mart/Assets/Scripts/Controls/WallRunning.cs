@@ -177,6 +177,7 @@ public class WallRunning : MonoBehaviour
 
         rb.linearVelocity = new Vector3(rb.linearVelocity.x, 0f, rb.linearVelocity.z);
         rb.AddForce(jumpForce, ForceMode.Impulse);
+        SoundManager.Instance.PlaySound2D("Jump");
 
         StopWallRun();
     }

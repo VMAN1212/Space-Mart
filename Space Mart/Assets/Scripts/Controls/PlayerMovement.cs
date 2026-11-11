@@ -280,6 +280,7 @@ public class PlayerMovement : MonoBehaviour
         exitingSlope = true;
         rb.linearVelocity = new Vector3(rb.linearVelocity.x, 0f, rb.linearVelocity.z);
         rb.AddForce(transform.up * jumpForce, ForceMode.Impulse);
+        SoundManager.Instance.PlaySound2D("Jump");
     }
 
     private void ResetJump()

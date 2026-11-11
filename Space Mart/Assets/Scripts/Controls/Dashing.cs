@@ -94,6 +94,8 @@ public class Dashing : MonoBehaviour
         StartCoroutine(DelayedForceRoutine(forceToApply));
 
         Invoke(nameof(ResetDash), dashDuration);
+
+        SoundManager.Instance.PlaySound2D("Dash");
     }
 
     private Vector3 GetDirection(Transform forwardT)

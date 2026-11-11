@@ -30,6 +30,8 @@ public class Shooting : MonoBehaviour
             return;
         }
 
+        SoundManager.Instance.PlaySound2D("Shoot");
+
         BulletPool.Instance.GetBullet(bulletSpawn.position, bulletSpawn.rotation);
 
        
