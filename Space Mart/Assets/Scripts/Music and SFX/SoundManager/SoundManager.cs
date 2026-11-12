@@ -12,6 +12,11 @@ public class SoundManager : MonoBehaviour
     [SerializeField]
     private AudioSource sfx2DSource;
 
+    public AudioClip GetClip(string soundName)
+    {
+        return sfxLibrary.GetClipFromName(soundName);
+    }
+
     public void Awake()
     {
         if (Instance != null)
