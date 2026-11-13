@@ -20,7 +20,6 @@ public class VideoCutsceneController : MonoBehaviour
 
         // Play the video
         videoPlayer.Play();
-        MusicManager.Instance.PlayMusic("Intro"); // Play the intro music when the cutscene starts
     }
 
     void Update()

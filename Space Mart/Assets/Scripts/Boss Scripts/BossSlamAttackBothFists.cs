@@ -85,6 +85,7 @@ public class BossSlamAttackBothFists : MonoBehaviour
     {
         if (shockwavePrefab != null)
         {
+            SoundManager.Instance.PlaySound2D("Attack");
             Instantiate(shockwavePrefab, spawnPos, Quaternion.identity);
         }
         Debug.Log("SLAM! Shockwave spawned from fist.");

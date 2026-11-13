@@ -3,6 +3,8 @@ using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
+    Animator animator;
+
     [Header("Input (New Input System)")]
     public InputActionReference moveInput;
     public InputActionReference jumpInput;
@@ -45,6 +47,9 @@ public class PlayerMovement : MonoBehaviour
     [Tooltip("Drag your Camera transform here.")]
     public Transform playerCamera;
 
+    [Tooltip("Drag your PlayerModel child object here.")]
+    public Transform playerModel;
+
     private float horizontalInput;
     private float verticalInput;
     private Vector3 moveDirection;
@@ -53,7 +58,17 @@ public class PlayerMovement : MonoBehaviour
     [HideInInspector] public bool dashigkeit; // or `dashing` bool
     [HideInInspector] public float maxYSpeed;
 
+    [Header("Limb Hiding")]
+    [Tooltip("Drag the right upper arm bone from Armature here.")]
+    public Transform rightArmBone;
+
+    [Header("Animation")]
+    [SerializeField] private Animator playerAnimation;
+
+
+
     public MovementState state;
+
     public enum MovementState
     {
         walking,
@@ -104,6 +119,7 @@ public class PlayerMovement : MonoBehaviour
         MyInput();
         SpeedControl();
         StateHandler();
+        UpdateAnimations();
 
         // Handle drag
         if (grounded)
@@ -112,10 +128,56 @@ public class PlayerMovement : MonoBehaviour
             rb.linearDamping = 0;
     }
 
+    private void RotateModelWithCamera()
+    {
+        if (playerCamera == null || playerModel == null) return;
+
+        // Flatten the camera's forward direction so the model doesn't tilt up/down
+        Vector3 flatForward = playerCamera.forward;
+        flatForward.y = 0f;
+
+        if (flatForward.sqrMagnitude > 0.001f)
+        {
+            Quaternion targetRotation = Quaternion.LookRotation(flatForward);
+
+            // Match the camera's exact horizontal rotation rate
+            playerModel.rotation = targetRotation;
+
+            // Optional: If you want a slight natural smoothing instead of 1:1 instant snap, replace the line above with:
+            // playerModel.rotation = Quaternion.Slerp(playerModel.rotation, targetRotation, 20f * Time.deltaTime);
+        }
+    }
+
+    private void UpdateAnimations()
+    {
+        if (playerAnimation == null) return;
+
+        // Check if the player is actively pressing movement keys or moving horizontally
+        bool isMoving = new Vector3(rb.linearVelocity.x, 0f, rb.linearVelocity.z).magnitude > 0.1f
+                        || Mathf.Abs(horizontalInput) > 0.01f
+                        || Mathf.Abs(verticalInput) > 0.01f;
+
+        playerAnimation.SetBool("IsIdle", grounded && !isMoving && !isCrouching);
+        playerAnimation.SetBool("IsWalking", state == MovementState.walking && isMoving);
+        playerAnimation.SetBool("IsSprinting", state == MovementState.sprinting && isMoving);
+        playerAnimation.SetBool("IsCrouching", state == MovementState.crouching);
+        playerAnimation.SetBool("IsJumping", state == MovementState.air);
+    }
+
     private void FixedUpdate()
     {
         MovePlayer();
         ApplyBetterGravity();
+    }
+
+    private void LateUpdate()
+    {
+        RotateModelWithCamera();
+
+        if (rightArmBone != null)
+        {
+            rightArmBone.localScale = Vector3.zero;
+        }
     }
 
     private void MyInput()
@@ -157,6 +219,13 @@ public class PlayerMovement : MonoBehaviour
     private void OnSprintToggle(InputAction.CallbackContext context)
     {
         isSprinting = !isSprinting; // Toggle state
+        PlayerCam playerCam = GetComponentInChildren<PlayerCam>(); // Or cache your camera reference
+
+        // When sprinting starts:
+        playerCam.SetFOV(75f); // Your sprint FOV
+
+        // When sprinting stops:
+        playerCam.SetFOV(60f); // Your normal FOV
     }
 
     private void StateHandler()
@@ -288,4 +357,5 @@ public class PlayerMovement : MonoBehaviour
         readyToJump = true;
         exitingSlope = false;
     }
+
 }

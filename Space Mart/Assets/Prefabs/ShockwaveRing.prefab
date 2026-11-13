@@ -127,4 +127,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NewMonoBehaviourScript
   maxScale: 90
-  expandSpeed: 100
+  expandSpeed: 50
+  boomSoundID: Boom

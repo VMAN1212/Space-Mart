@@ -165,6 +165,8 @@ public class WallRunning : MonoBehaviour
         {
             playerCam.SetWallTilt(0f);
         }
+
+        FindObjectOfType<PlayerCam>().SetWallTilt(0f);
     }
 
     private void WallJump()

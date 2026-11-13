@@ -20,6 +20,6 @@ public class AmmoRefill : MonoBehaviour, IInteractable
 
         ammo.addReserveAmmo(ammoAmount);
         lastPickup = Time.time;
-        SoundManager.Instance.PlaySound3D("Ammo", transform.position);
+        SoundManager.Instance.PlaySound2D("Ammo");
     }
 }

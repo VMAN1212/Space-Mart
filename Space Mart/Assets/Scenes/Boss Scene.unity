@@ -6960,6 +6960,79 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 6317106008045385693, guid: ad7ee8aecec5d6442b36f470771d300b, type: 3}
+--- !u!1001 &1468261728
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1662287291088007448, guid: dcc9f8d1d52850a42b83cb7a596c9b44, type: 3}
+      propertyPath: soundEffects.Array.size
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1662287291088007448, guid: dcc9f8d1d52850a42b83cb7a596c9b44, type: 3}
+      propertyPath: soundEffects.Array.data[6].groupID
+      value: Attack
+      objectReference: {fileID: 0}
+    - target: {fileID: 1662287291088007448, guid: dcc9f8d1d52850a42b83cb7a596c9b44, type: 3}
+      propertyPath: soundEffects.Array.data[6].clips.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1662287291088007448, guid: dcc9f8d1d52850a42b83cb7a596c9b44, type: 3}
+      propertyPath: 'soundEffects.Array.data[6].clips.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8300000, guid: da3f0330d59e55b488a02c7a42f37887, type: 3}
+    - target: {fileID: 1684713948247604700, guid: dcc9f8d1d52850a42b83cb7a596c9b44, type: 3}
+      propertyPath: m_Name
+      value: AudioManager 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4064539517608967246, guid: dcc9f8d1d52850a42b83cb7a596c9b44, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.59698
+      objectReference: {fileID: 0}
+    - target: {fileID: 4064539517608967246, guid: dcc9f8d1d52850a42b83cb7a596c9b44, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.17
+      objectReference: {fileID: 0}
+    - target: {fileID: 4064539517608967246, guid: dcc9f8d1d52850a42b83cb7a596c9b44, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 8.53484
+      objectReference: {fileID: 0}
+    - target: {fileID: 4064539517608967246, guid: dcc9f8d1d52850a42b83cb7a596c9b44, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4064539517608967246, guid: dcc9f8d1d52850a42b83cb7a596c9b44, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4064539517608967246, guid: dcc9f8d1d52850a42b83cb7a596c9b44, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4064539517608967246, guid: dcc9f8d1d52850a42b83cb7a596c9b44, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4064539517608967246, guid: dcc9f8d1d52850a42b83cb7a596c9b44, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4064539517608967246, guid: dcc9f8d1d52850a42b83cb7a596c9b44, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4064539517608967246, guid: dcc9f8d1d52850a42b83cb7a596c9b44, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: dcc9f8d1d52850a42b83cb7a596c9b44, type: 3}
 --- !u!1 &1630777638
 GameObject:
   m_ObjectHideFlags: 0
@@ -7052,7 +7125,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cedd4f139210894f8097343b6a20cca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BossSlamAttackBothFists
-  attackInterval: 0.5
+  attackInterval: 1
   telegraphTime: 1
   slamSpeed: 30
   shockwavePrefab: {fileID: 3068414009991529852, guid: 73ab5f38355e9684e9b3c9fec09fa8e3, type: 3}
@@ -7131,6 +7204,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: -2527568232392878828, guid: ad7ee8aecec5d6442b36f470771d300b, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: -1080736827360599544, guid: ad7ee8aecec5d6442b36f470771d300b, type: 3}
       propertyPath: m_LocalScale.x
       value: 23
@@ -7174,6 +7251,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: ad7ee8aecec5d6442b36f470771d300b, type: 3}
       propertyPath: m_Name
       value: Boss_Desk
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: ad7ee8aecec5d6442b36f470771d300b, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 1215371896449706283, guid: ad7ee8aecec5d6442b36f470771d300b, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
@@ -7416,12 +7497,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db1f1dc34b508f044a490ef50fba43f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerFootsteps
-  rb: {fileID: 1797220206}
-  audioSource: {fileID: 1797220197}
-  footstepClips:
-  - {fileID: 8300000, guid: e9bf05cc429ccf14d91d648d5afea43f, type: 3}
-  stepInterval: 0.4
-  minSpeedToPlay: 2
+  rb: {fileID: 0}
+  groundCheck: {fileID: 0}
+  groundLayer:
+    m_Bits: 0
+  groundCheckRadius: 0.3
+  crouchStepInterval: 0.65
+  walkStepInterval: 0.38
+  sprintStepInterval: 0.26
+  minSpeedToPlay: 1.5
+  sprintSpeedThreshold: 11
 --- !u!82 &1797220197
 AudioSource:
   m_ObjectHideFlags: 0
@@ -7519,11 +7604,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!54 &1797220206 stripped
-Rigidbody:
-  m_CorrespondingSourceObject: {fileID: 2251081159292629678, guid: 47b2fa646a782f44599bc7d1ac7440a0, type: 3}
-  m_PrefabInstance: {fileID: 1032069425}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1807018955
 GameObject:
   m_ObjectHideFlags: 0
@@ -8561,3 +8641,4 @@ SceneRoots:
   - {fileID: 2110348805}
   - {fileID: 1317981029}
   - {fileID: 276887657}
+  - {fileID: 1468261728}
