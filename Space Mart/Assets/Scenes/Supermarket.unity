@@ -16716,18 +16716,13 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 5057460853187244256, guid: 4338de6cb311a22488440794dd8affde, type: 3}
-      insertIndex: -1
+      insertIndex: 0
       addedObject: {fileID: 2003884250}
     - targetCorrespondingSourceObject: {fileID: 5057460853187244256, guid: 4338de6cb311a22488440794dd8affde, type: 3}
-      insertIndex: -1
+      insertIndex: 1
       addedObject: {fileID: 668187128}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4338de6cb311a22488440794dd8affde, type: 3}
---- !u!1 &612108665 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6375038701473238802, guid: 4338de6cb311a22488440794dd8affde, type: 3}
-  m_PrefabInstance: {fileID: 612108664}
-  m_PrefabAsset: {fileID: 0}
 --- !u!43 &623358691
 Mesh:
   m_ObjectHideFlags: 0
@@ -37254,11 +37249,7 @@ MonoBehaviour:
   nameText: {fileID: 1711617127}
   dialogueText: {fileID: 1332632750}
   continuePromptText: {fileID: 112442596}
-  uiToHide:
-  - {fileID: 612108665}
-  - {fileID: 638339539}
-  - {fileID: 668187127}
-  - {fileID: 829700284}
+  uiToHide: []
   animator: {fileID: 0}
   playerInput: {fileID: 756048558}
   continueAction: {fileID: 4299435376120871425, guid: ec4dae7be2b758d43b427739230d6aaa, type: 3}
@@ -37294,15 +37285,15 @@ MonoBehaviour:
     dialogueLines:
     - speakerName: Johnny
       sentence: Why do the customers look like that?
-    - speakerName: 'Jerry '
+    - speakerName: 'Jimmy '
       sentence: I don't know what you're talking about.
-    - speakerName: 'Jerry '
+    - speakerName: Jimmy
       sentence: Anyways, go ahead and pack the shelves.
-    - speakerName: 'Jerry '
+    - speakerName: Jimmy
       sentence: Explore the shop in order to find them and their items.
-    - speakerName: 'Jerry '
+    - speakerName: Jimmy
       sentence: And remember, the shift ends in a few minutes.
-    - speakerName: 'Jerry '
+    - speakerName: Jimmy
       sentence: Do your best not to chase all the customers away.
 --- !u!43 &1506689964
 Mesh:

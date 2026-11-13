@@ -3629,9 +3629,9 @@ MonoBehaviour:
       sentence: It's the busiest day of the year...
     - speakerName: Johnny
       sentence: HOW AM I GOING TO DO MY JOB?!
-    - speakerName: 'Jerry '
+    - speakerName: Jimmy
       sentence: Johnny Dude, chill out.
-    - speakerName: 'Jerry '
+    - speakerName: Jimmy
       sentence: Come over to me, I'll give you a quick run through of what we need
         to do.
 --- !u!1 &654266443 stripped
@@ -13185,6 +13185,90 @@ PrefabInstance:
     - target: {fileID: 7785960561895106196, guid: 25c7f5a829199ee409a30b4b58f1e611, type: 3}
       propertyPath: m_Name
       value: NPC
+      objectReference: {fileID: 0}
+    - target: {fileID: 8147305279328663042, guid: 25c7f5a829199ee409a30b4b58f1e611, type: 3}
+      propertyPath: dialogueSteps.Array.data[0].dialogueLines.Array.data[0].speakerName
+      value: Jimmy
+      objectReference: {fileID: 0}
+    - target: {fileID: 8147305279328663042, guid: 25c7f5a829199ee409a30b4b58f1e611, type: 3}
+      propertyPath: dialogueSteps.Array.data[0].dialogueLines.Array.data[1].speakerName
+      value: Jimmy
+      objectReference: {fileID: 0}
+    - target: {fileID: 8147305279328663042, guid: 25c7f5a829199ee409a30b4b58f1e611, type: 3}
+      propertyPath: dialogueSteps.Array.data[0].dialogueLines.Array.data[2].speakerName
+      value: Jimmy
+      objectReference: {fileID: 0}
+    - target: {fileID: 8147305279328663042, guid: 25c7f5a829199ee409a30b4b58f1e611, type: 3}
+      propertyPath: dialogueSteps.Array.data[0].dialogueLines.Array.data[3].speakerName
+      value: Jimmy
+      objectReference: {fileID: 0}
+    - target: {fileID: 8147305279328663042, guid: 25c7f5a829199ee409a30b4b58f1e611, type: 3}
+      propertyPath: dialogueSteps.Array.data[0].dialogueLines.Array.data[4].speakerName
+      value: Jimmy
+      objectReference: {fileID: 0}
+    - target: {fileID: 8147305279328663042, guid: 25c7f5a829199ee409a30b4b58f1e611, type: 3}
+      propertyPath: dialogueSteps.Array.data[0].dialogueLines.Array.data[5].speakerName
+      value: Jimmy
+      objectReference: {fileID: 0}
+    - target: {fileID: 8147305279328663042, guid: 25c7f5a829199ee409a30b4b58f1e611, type: 3}
+      propertyPath: dialogueSteps.Array.data[0].dialogueLines.Array.data[6].speakerName
+      value: Jimmy
+      objectReference: {fileID: 0}
+    - target: {fileID: 8147305279328663042, guid: 25c7f5a829199ee409a30b4b58f1e611, type: 3}
+      propertyPath: dialogueSteps.Array.data[1].dialogueLines.Array.data[3].speakerName
+      value: Jimmy
+      objectReference: {fileID: 0}
+    - target: {fileID: 8147305279328663042, guid: 25c7f5a829199ee409a30b4b58f1e611, type: 3}
+      propertyPath: dialogueSteps.Array.data[1].dialogueLines.Array.data[4].speakerName
+      value: Jimmy
+      objectReference: {fileID: 0}
+    - target: {fileID: 8147305279328663042, guid: 25c7f5a829199ee409a30b4b58f1e611, type: 3}
+      propertyPath: dialogueSteps.Array.data[1].dialogueLines.Array.data[5].speakerName
+      value: Jimmy
+      objectReference: {fileID: 0}
+    - target: {fileID: 8147305279328663042, guid: 25c7f5a829199ee409a30b4b58f1e611, type: 3}
+      propertyPath: dialogueSteps.Array.data[1].dialogueLines.Array.data[7].speakerName
+      value: Jimmy
+      objectReference: {fileID: 0}
+    - target: {fileID: 8147305279328663042, guid: 25c7f5a829199ee409a30b4b58f1e611, type: 3}
+      propertyPath: dialogueSteps.Array.data[2].dialogueLines.Array.data[1].speakerName
+      value: Jimmy
+      objectReference: {fileID: 0}
+    - target: {fileID: 8147305279328663042, guid: 25c7f5a829199ee409a30b4b58f1e611, type: 3}
+      propertyPath: dialogueSteps.Array.data[2].dialogueLines.Array.data[2].speakerName
+      value: Jimmy
+      objectReference: {fileID: 0}
+    - target: {fileID: 8147305279328663042, guid: 25c7f5a829199ee409a30b4b58f1e611, type: 3}
+      propertyPath: dialogueSteps.Array.data[2].dialogueLines.Array.data[3].speakerName
+      value: Jimmy
+      objectReference: {fileID: 0}
+    - target: {fileID: 8147305279328663042, guid: 25c7f5a829199ee409a30b4b58f1e611, type: 3}
+      propertyPath: dialogueSteps.Array.data[2].dialogueLines.Array.data[5].speakerName
+      value: Jimmy
+      objectReference: {fileID: 0}
+    - target: {fileID: 8147305279328663042, guid: 25c7f5a829199ee409a30b4b58f1e611, type: 3}
+      propertyPath: dialogueSteps.Array.data[2].dialogueLines.Array.data[6].speakerName
+      value: Jimmy
+      objectReference: {fileID: 0}
+    - target: {fileID: 8147305279328663042, guid: 25c7f5a829199ee409a30b4b58f1e611, type: 3}
+      propertyPath: dialogueSteps.Array.data[2].dialogueLines.Array.data[8].speakerName
+      value: Jimmy
+      objectReference: {fileID: 0}
+    - target: {fileID: 8147305279328663042, guid: 25c7f5a829199ee409a30b4b58f1e611, type: 3}
+      propertyPath: dialogueSteps.Array.data[2].dialogueLines.Array.data[9].speakerName
+      value: Jimmy
+      objectReference: {fileID: 0}
+    - target: {fileID: 8147305279328663042, guid: 25c7f5a829199ee409a30b4b58f1e611, type: 3}
+      propertyPath: dialogueSteps.Array.data[2].dialogueLines.Array.data[10].speakerName
+      value: Jimmy
+      objectReference: {fileID: 0}
+    - target: {fileID: 8147305279328663042, guid: 25c7f5a829199ee409a30b4b58f1e611, type: 3}
+      propertyPath: dialogueSteps.Array.data[2].dialogueLines.Array.data[11].speakerName
+      value: Jimmy
+      objectReference: {fileID: 0}
+    - target: {fileID: 8147305279328663042, guid: 25c7f5a829199ee409a30b4b58f1e611, type: 3}
+      propertyPath: dialogueSteps.Array.data[2].dialogueLines.Array.data[12].speakerName
+      value: Jimmy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
