@@ -219,13 +219,6 @@ public class PlayerMovement : MonoBehaviour
     private void OnSprintToggle(InputAction.CallbackContext context)
     {
         isSprinting = !isSprinting; // Toggle state
-        PlayerCam playerCam = GetComponentInChildren<PlayerCam>(); // Or cache your camera reference
-
-        // When sprinting starts:
-        playerCam.SetFOV(75f); // Your sprint FOV
-
-        // When sprinting stops:
-        playerCam.SetFOV(60f); // Your normal FOV
     }
 
     private void StateHandler()

@@ -10,6 +10,8 @@ public class PlayerCam : MonoBehaviour
     [Header("Sensitivity")]
     public float sensX = 400f;
     public float sensY = 400f;
+
+    [Tooltip("Multiplier applied specifically to controllers to make joysticks feel snappy.")]
     public float gamepadSensMultiplier = 50f;
 
     private float xRotation;
@@ -21,21 +23,10 @@ public class PlayerCam : MonoBehaviour
     private float targetTilt;
     public float tiltTransitionSpeed = 10f;
 
-    [Header("FOV Settings")]
-    public Camera playerCam;
-    public float normalFOV = 60f;
-    public float sprintFOV = 75f;
-    public float fovTransitionSpeed = 10f;
-    private float targetFOV;
-
     private void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
-
-        if (playerCam == null) playerCam = GetComponent<Camera>();
-        if (playerCam != null) normalFOV = playerCam.fieldOfView;
-        targetFOV = normalFOV;
     }
 
     private void OnEnable() => lookInput.action.Enable();
@@ -45,12 +36,14 @@ public class PlayerCam : MonoBehaviour
     {
         Vector2 lookValue = lookInput.action.ReadValue<Vector2>();
 
+        // Check if the active input device is a Gamepad and scale the input accordingly
         float currentMultiplier = 1f;
         if (lookInput.action.activeControl?.device is Gamepad)
         {
             currentMultiplier = gamepadSensMultiplier;
         }
 
+        // Apply sensitivity and scaling
         float inputX = lookValue.x * Time.deltaTime * sensX * currentMultiplier;
         float inputY = lookValue.y * Time.deltaTime * sensY * currentMultiplier;
 
@@ -58,11 +51,7 @@ public class PlayerCam : MonoBehaviour
         xRotation -= inputY;
         xRotation = Mathf.Clamp(xRotation, -90f, 90f);
 
-        // Smoothly interpolate FOV
-        if (playerCam != null)
-        {
-            playerCam.fieldOfView = Mathf.Lerp(playerCam.fieldOfView, targetFOV, fovTransitionSpeed * Time.deltaTime);
-        }
+        transform.localRotation = Quaternion.Euler(xRotation, yRotation, 0f);
 
         currentTilt = Mathf.Lerp(currentTilt, targetTilt, tiltTransitionSpeed * Time.deltaTime);
 
@@ -73,10 +62,5 @@ public class PlayerCam : MonoBehaviour
     public void SetWallTilt(float tilt)
     {
         targetTilt = tilt;
-    }
-
-    public void SetFOV(float newFOV)
-    {
-        targetFOV = newFOV;
     }
 }
