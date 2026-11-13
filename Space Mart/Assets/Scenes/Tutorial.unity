@@ -119,6 +119,17 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &31787089 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8147305279328663042, guid: 25c7f5a829199ee409a30b4b58f1e611, type: 3}
+  m_PrefabInstance: {fileID: 9133463733953926384}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6055b615e083d274e8c210729ddbc39d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NPCInteraction
 --- !u!1 &73200491 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3512009906710071027, guid: 4338de6cb311a22488440794dd8affde, type: 3}
@@ -10289,6 +10300,55 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1760680865
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1760680867}
+  - component: {fileID: 1760680866}
+  m_Layer: 0
+  m_Name: Global Volume
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1760680866
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1760680865}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.RenderPipelines.Core.Runtime::UnityEngine.Rendering.Volume
+  m_IsGlobal: 1
+  priority: 0
+  blendDistance: 0
+  weight: 1
+  sharedProfile: {fileID: 11400000, guid: bcdf8cab0b377a845a3a8928b06f5fda, type: 2}
+--- !u!4 &1760680867
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1760680865}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 27.22378, y: 7.863599, z: -15.559897}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1776366337
 GameObject:
   m_ObjectHideFlags: 0
@@ -10318,7 +10378,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 492f1ab97df82904b8206ab85f929050, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TutorialManager
-  tutorialNpc: {fileID: 0}
+  tutorialNpc: {fileID: 31787089}
 --- !u!4 &1776366339
 Transform:
   m_ObjectHideFlags: 0
@@ -12971,6 +13031,10 @@ PrefabInstance:
       propertyPath: m_ActionEvents.Array.data[9].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 5489248804507833769, guid: 3f16feecec4476549afa7b6bd005bd85, type: 3}
+      propertyPath: m_RenderPostProcessing
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7748606304474902924, guid: 3f16feecec4476549afa7b6bd005bd85, type: 3}
       propertyPath: m_Name
       value: Player
@@ -13090,3 +13154,4 @@ SceneRoots:
   - {fileID: 503649745}
   - {fileID: 9133463733953926384}
   - {fileID: 560128801}
+  - {fileID: 1760680867}
