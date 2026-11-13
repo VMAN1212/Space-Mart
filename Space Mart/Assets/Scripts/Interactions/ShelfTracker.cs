@@ -7,31 +7,44 @@ public class ShelfTracker : MonoBehaviour
     [SerializeField] private int sceneToLoad = 6;
     [SerializeField] private float delayBeforeLoad = 0f;
 
-    private Queue<Shelf> shelfQueue;
+    [SerializeField] private List<GameObject> Shelves = new List<GameObject>();
+
+    private readonly List<Shelf> remaining = new List<Shelf>();
     private bool loading;
 
-    public int ShelvesRemaining => shelfQueue == null ? 0 : shelfQueue.Count;
+    public int ShelvesRemaining => remaining.Count;
 
     private void Start()
     {
-        shelfQueue = new Queue<Shelf>(FindObjectsByType<Shelf>(FindObjectsSortMode.None));
+        foreach (GameObject go in Shelves)
+        {
+            if (go == null) continue;
 
-        if (shelfQueue.Count == 0)
-            Debug.LogWarning($"{name}: no shelves found in the scene.", this);
+            Shelf shelf = go.GetComponent<Shelf>();
+            if (shelf == null)
+            {
+                Debug.LogWarning($"{go.name} is in the Shelves list but has no Shelf component.", go);
+                continue;
+            }
+
+            if (!remaining.Contains(shelf))
+                remaining.Add(shelf);
+        }
+
+        if (remaining.Count == 0)
+        {
+            Debug.LogWarning($"{name}: no valid shelves assigned in the Shelves list.", this);
+            enabled = false;
+        }
     }
 
     private void Update()
     {
-        if (loading || shelfQueue == null || shelfQueue.Count == 0) return;
+        if (loading) return;
 
-        int count = shelfQueue.Count;
-        for (int i = 0; i < count; i++)
-        {
-            Shelf shelf = shelfQueue.Dequeue();
-            if (shelf != null && !shelf.IsCompleted) shelfQueue.Enqueue(shelf);
-        }
+        remaining.RemoveAll(shelf => shelf == null || shelf.IsCompleted);
 
-        if (shelfQueue.Count == 0)
+        if (remaining.Count == 0)
         {
             loading = true;
             Invoke(nameof(LoadNextScene), delayBeforeLoad);
