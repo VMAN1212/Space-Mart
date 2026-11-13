@@ -32,6 +32,7 @@ public class BossLogic : MonoBehaviour
         Destroy(gameObject);
 
         // Load your win scene (make sure it's added to File > Build Settings!)
-        SceneManager.LoadScene("Supermarket");
+        SceneManager.LoadScene("GoodEndingScene");
+        MusicManager.Instance.PlayMusic("GoodEnd"); // Play the good ending music
     }
 }
