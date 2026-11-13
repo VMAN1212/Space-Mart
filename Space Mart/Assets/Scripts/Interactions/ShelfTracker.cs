@@ -48,6 +48,7 @@ public class ShelfTracker : MonoBehaviour
         {
             loading = true;
             Invoke(nameof(LoadNextScene), delayBeforeLoad);
+            MusicManager.Instance.PlayMusic("GoodEnd");
         }
     }
 

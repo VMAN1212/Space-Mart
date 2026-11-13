@@ -38,6 +38,7 @@ public class EnemyTracker : MonoBehaviour
         {
             loading = true;
             Invoke(nameof(LoadNextScene), delayBeforeLoad);
+            MusicManager.Instance.PlayMusic("Boss");
         }
     }
 

@@ -355,6 +355,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 516051629}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &114153468 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7748606304474902924, guid: 3f16feecec4476549afa7b6bd005bd85, type: 3}
+  m_PrefabInstance: {fileID: 301066573}
+  m_PrefabAsset: {fileID: 0}
 --- !u!43 &117412164
 Mesh:
   m_ObjectHideFlags: 0
@@ -1009,7 +1014,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7748606304474902924, guid: 3f16feecec4476549afa7b6bd005bd85, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1108797380}
   m_SourcePrefab: {fileID: 100100000, guid: 3f16feecec4476549afa7b6bd005bd85, type: 3}
 --- !u!43 &325100719
 Mesh:
@@ -5164,12 +5172,28 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3623857387874993849, guid: 3f16feecec4476549afa7b6bd005bd85, type: 3}
   m_PrefabInstance: {fileID: 301066573}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 114153468}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: abe44b49d6262494b9b92c731d41018a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Ammo
+--- !u!114 &1108797380
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 114153468}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a22d2fecd32ac444fbf91655c66e79af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerHealth
+  maxHealth: 100
+  damageFlashPanel: {fileID: 1807018956}
+  flashDuration: 0.2
+  maxAlpha: 0.6
 --- !u!1 &1112362714
 GameObject:
   m_ObjectHideFlags: 0
