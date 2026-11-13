@@ -2,21 +2,16 @@ using UnityEngine;
 
 public class EnemyLogic : MonoBehaviour
 {
-
     public int health = 5;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public void TakeDamage(int amount)
     {
-        
-    }
+        if (health <= 0) return;
 
-    // Update is called once per frame
-    void Update()
-    {
+        health -= amount;
+        Debug.Log($"{name} took {amount} damage, health now {health}", this);
+
         if (health <= 0)
-        {
             Destroy(gameObject);
-        }
     }
 }

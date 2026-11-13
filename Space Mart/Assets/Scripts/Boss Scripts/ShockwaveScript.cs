@@ -48,7 +48,7 @@ public class FirstPersonShockwave : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             Debug.Log("Player hit by shockwave!");
-            other.GetComponent<PlayerHP>()?.TakeDamage(10);
+            other.GetComponent<PlayerHealth>()?.TakeDamage(10);
         }
     }
 }

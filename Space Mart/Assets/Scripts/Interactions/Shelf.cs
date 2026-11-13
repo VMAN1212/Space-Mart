@@ -72,7 +72,7 @@ public class Shelf : MonoBehaviour
     {
         if (counterText != null)
         {
-            counterText.text = placedItems + "/" + requiredItems + " " + acceptedItemType + "s placed.";
+            counterText.text = placedItems + "/" + requiredItems + " " + acceptedItemType + " placed.";
         }
     }
 

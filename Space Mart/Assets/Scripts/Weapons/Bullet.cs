@@ -1,19 +1,19 @@
-using System.Runtime.CompilerServices;
 using UnityEngine;
 using System.Collections;
 
 public class Bullet : MonoBehaviour
 {
-    public int speed = 1;
+    public float speed = 30f;
+    public int damage = 1;
+
     private Rigidbody rb;
-    public EnemyLogic enemyL;
     private Coroutine deactivate;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
+        rb.collisionDetectionMode = CollisionDetectionMode.ContinuousDynamic; // stops fast bullets passing through
     }
-
 
     private void OnEnable()
     {
@@ -30,11 +30,13 @@ public class Bullet : MonoBehaviour
         if (other.isTrigger) return;
         if (other.CompareTag("Player")) return;
 
-        if (other.gameObject.tag == "Enemy")
-        {
-            enemyL = other.gameObject.GetComponent<EnemyLogic>();
-            enemyL.health -= 1;
-        }
+        Debug.Log($"Bullet hit: {other.name}", other); // click the log to highlight what was hit
+
+        // Works even when the collider is on a child of the enemy
+        EnemyLogic enemy = other.GetComponentInParent<EnemyLogic>();
+        if (enemy != null)
+            enemy.TakeDamage(damage);
+
         ReturnToPool();
     }
 
@@ -46,9 +48,10 @@ public class Bullet : MonoBehaviour
 
     private void ReturnToPool()
     {
+        if (deactivate != null) { StopCoroutine(deactivate); deactivate = null; }
+
         rb.linearVelocity = Vector3.zero;
         rb.angularVelocity = Vector3.zero;
-
         BulletPool.Instance.ReturnBullet(gameObject);
     }
 }

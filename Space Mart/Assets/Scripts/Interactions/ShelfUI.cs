@@ -30,7 +30,7 @@ public class ShelfUI : MonoBehaviour
 
     private void updateUI()
     {
-        counter.text = placedItems + "/" + requiredItems + " red items placed.";
+        counter.text = placedItems + "/" + requiredItems + " placed.";
     }
 
     private void taskCompleted()
