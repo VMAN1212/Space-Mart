@@ -37,6 +37,10 @@ public class Bullet : MonoBehaviour
         if (enemy != null)
             enemy.TakeDamage(damage);
 
+        Boss enemyBoss = other.GetComponentInParent<Boss>();
+        if (enemyBoss != null)
+            enemyBoss.TakeDamage(damage);
+
         ReturnToPool();
     }
 
