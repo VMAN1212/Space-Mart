@@ -15,6 +15,8 @@ public class Shelf : MonoBehaviour
     private int placedItems = 0;
     private int requiredItems;
 
+    public bool IsCompleted => placedItems >= requiredItems;
+
     private void Awake()
     {
         isFull = new bool[placePoint.Length];

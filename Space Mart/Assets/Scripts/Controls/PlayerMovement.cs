@@ -18,6 +18,7 @@ public class PlayerMovement : MonoBehaviour
     public float sprintSpeed = 10f;
     public float slideSpeed = 15f;
     public float groundDrag = 5f;
+    public bool canMove = true;
 
     [Header("Jumping")]
     public float jumpForce = 6f;
@@ -272,7 +273,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void MovePlayer()
     {
-        if (playerCamera == null) return;
+        if (!canMove || playerCamera == null) return;
 
         Vector3 forward = playerCamera.forward;
         Vector3 right = playerCamera.right;
